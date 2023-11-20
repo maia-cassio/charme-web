@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão de Beleza - Catálogo de Serviços</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* Cor de fundo branca */
+        }
+
+        header {
+            background-color: #ff66b2; /* Cor rosa */
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .service {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: #ff66b2; /* Cor rosa */
+        }
+
+        p {
+            color: #666;
+        }
+
+        .price {
+            color: #ff66b2; /* Cor rosa */
+            font-weight: bold;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 10px;
+            color: #ff66b2; /* Cor rosa */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff66b2; /* Cor rosa */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Salão de Beleza - Catálogo de Serviços</h1>
+    </header>
+
+    <section>
+        <label for="profissional">Selecione um Profissional:</label>
+        <select id="profissional">
+            <option value="profissional1">Profissional 1</option>
+            <option value="profissional2">Profissional 2</option>
+            <!-- Adicione mais profissionais conforme necessário -->
+        </select>
+
+        <div class="service">
+            <h2>Corte de Cabelo</h2>
+            <p>Transforme seu visual com um corte incrível.</p>
+            <p class="price">Preço: R$50,00</p>
+            <button onclick="openWhatsApp('Corte de Cabelo')">Agendar</button>
+        </div>
+
+        <div class="service">
+            <h2>Coloração de Cabelo</h2>
+            <p>Renove sua cor e ilumine seu cabelo.</p>
+            <p class="price">Preço: R$80,00</p>
+            <button onclick="openWhatsApp('Coloração de Cabelo')">Agendar</button>
+        </div>
+
+        <!-- Adicione mais serviços conforme necessário -->
+
+    </section>
+
+    <script>
+        function openWhatsApp(serviceName) {
+            var profissional = document.getElementById('profissional').value;
+            var phoneNumber = (profissional === 'profissional1') ? '111111111' : '222222222';
+            var message = 'Gostaria de agendar o serviço ' + serviceName + ' com o Profissional: ' + profissional;
+            var whatsappURL = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodeURIComponent(message);
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
